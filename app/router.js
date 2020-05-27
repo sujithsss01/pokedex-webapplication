@@ -7,4 +7,7 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function() {
+  this.route('pokedex', function() {
+    this.route('details',{path:'details/:api_id'});
+  });
 });
