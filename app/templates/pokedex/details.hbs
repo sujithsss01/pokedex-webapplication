@@ -7,10 +7,21 @@
 <img class="w-100  mt-3" src={{@model.avatar}}/>
 </div>
 <div class="pokemon-features mx-5 align-middle">
-<span>HEIGHT:{{@model.height}}</span>
+<span>HEIGHT:{{@model.weight}}</span>
 <span>WEIGHT:{{@model.weight}}</span>
 <span>TYPE:{{@model.types}}</span>
 </div>
 <HeavyWeight @weight={{@model.weight}}/>
+</div>
+{{#each this.notes.noteCollection as |notelist|}}
+<div class="note-display py-3 text-center">
+{{notelist}}
+</div>
+{{/each}}
+<div class="add-notes mx-auto text-center" style="max-width:600px;width:90%;">
+<div>
+<textarea value={{this.note}} onchange={{action (mut this.note) value="target.value"}} type="text" placeholder="type the notes to add"></textarea>
+</div>
+<button {{on "click" (fn this.addNote this.note)}} >ADD NOTES</button> 
 </div>
 </div>
