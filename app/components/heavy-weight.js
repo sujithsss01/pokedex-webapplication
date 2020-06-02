@@ -1,5 +1,4 @@
 import Component from '@glimmer/component';
-import fetch from 'fetch';
 
 export default class HeavyWeightComponent extends Component {
 	
