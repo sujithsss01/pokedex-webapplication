@@ -1,6 +1,13 @@
 import Route from '@ember/routing/route';
-
+import { later } from '@ember/runloop';
 export default class PokedexRoute extends Route {
+	beforeModel(){
+ return new Promise(function(resolve) {
+      later(function() {
+        resolve({ msg: 'LOADING' });
+      }, 1000);
+    });
+}
 model(){
 return [
 	{name:"bulbasaur",id:1,avatar:"https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",api_id:"5e39187dbd805113c043b181"},
